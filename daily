@@ -12,13 +12,14 @@ import subprocess
 
 from tc import Timecode
 import pyseq
-try:
-    import OpenImageIO as oiio
-    import numpy as np
-    import yaml
-    from PIL import Image
-except ImportError:
-    print("Error: Missing dependencies. Need:\n\tOpenImageIO\n\tNumPy\n\tPyYAML\n\tPillow (for mjpeg codec conversion)")
+
+#try:
+from oiio import OpenImageIO as oiio
+import numpy as np
+import yaml
+from PIL import Image
+#except ImportError:
+#    print("Error: Missing dependencies. Need:\n\tOpenImageIO\n\tNumPy\n\tPyYAML\n\tPillow (for mjpeg codec conversion)")
 
 
 """
@@ -101,7 +102,7 @@ class GenerateDaily():
         # Get Config file data
         if os.path.isfile(DAILIES_CONFIG):
             with open(DAILIES_CONFIG, 'r') as configfile:
-                config = yaml.load(configfile)
+                config = yaml.load(configfile, Loader=yaml.Loader)
         else:
             print("Error: Could not find config file {0}".format(DAILIES_CONFIG))
             self.setup_success = False
