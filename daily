@@ -13,13 +13,13 @@ import subprocess
 from tc import Timecode
 import pyseq
 
-#try:
-from oiio import OpenImageIO as oiio
-import numpy as np
-import yaml
-from PIL import Image
-#except ImportError:
-#    print("Error: Missing dependencies. Need:\n\tOpenImageIO\n\tNumPy\n\tPyYAML\n\tPillow (for mjpeg codec conversion)")
+try:
+    from oiio import OpenImageIO as oiio
+    import numpy as np
+    import yaml
+    from PIL import Image
+except ImportError:
+    print("Error: Missing dependencies. Need:\n\tOpenImageIO\n\tNumPy\n\tPyYAML\n\tPillow (for mjpeg codec conversion)")
 
 
 """
